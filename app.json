@@ -1,0 +1,22 @@
+{
+    "name": "cubis",
+    "description": "end to end food services platform",
+    "image": "",
+    "repository": "https://github.com/theydonthaveit/cubis-python-flask",
+    "keywords": ["python", "flask", "cubis", "psql" ],
+    "addons": [ "heroku-postgresql" ],
+    "env": {
+        "SECRET_KEY": {
+            "description": "none",
+            "generator": "secret"
+        }
+    },
+    "environments": {
+        "test": {
+            "scripts": {
+                "test-setup": "",
+                "test": ""
+            }
+        }
+    }
+}
