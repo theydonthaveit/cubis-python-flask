@@ -1,0 +1,1 @@
+heroku pg:psql postgresql-solid-86285 --app cubis-uk < populate_tables.sql
