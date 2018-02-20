@@ -12,7 +12,7 @@ class Restaurant(Base):
 	__tablename__ = 'restaurant'
 
 	id = Column(Integer, primary_key=True)
-	name = Column(String(80), nullable=False)
+	name = Column(String(120), nullable=False)
 
 
 	@property
@@ -27,6 +27,111 @@ class Restaurant(Base):
 				}
 			}
 		}
+
+
+# class SubRestaurant(Base):
+#     __tablename__ = 'subsidiary_restaurant'
+
+#     id = Column(Integer, primary_key=True)
+#     name = Column(String(80), nullable=False)
+#     restaurant = relationship(Restaurant, back_populates="subsidiary_restaurant")
+#     restaurant_id = Column(Integer, ForeignKey('restaurant.id'))
+
+#     @property
+#     def serialize(self):
+# 	    return {
+# 			'id': self.id,
+# 			'name': self.name,
+# 			'parent_restaurant': self.restaurant,
+# 		}
+
+
+# class Address(Base):
+#     __tablename__ = 'addresses'
+
+#     id = Column(Integer, primary_key=True)
+#     subsidiary_restaurant = relationship(SubRestaurant, back_populates="addresses")
+#     subsidiary_restaurant_id = Column(Integer, ForeignKey('subsidiary_restaurant.id'))
+#     address_line_one = Column(String(80), nullable=False)
+#     address_line_two = Column(String(80), nullable=True)
+#     city = Column(String(80), nullable=False)
+#     country = Column(String(80), nullable=False)
+#     postcode = Column(String(80), nullable=False)
+#     long = Column(String(80), nullable=False)
+#     lat = Column(String(80), nullable=False)
+
+#     @property
+#     def serialize(self):
+# 	    return {
+# 			'id': self.id,
+# 			'subsidiary_restaurant': self.subsidiary_restaurant,
+#             'address_line_one': self.address_line_one,
+# 		    'address_line_two': self.address_line_two,
+# 		    'city': self.city,
+# 		    'country': self.country,
+#             'postcode': self.postcode,
+# 			'long': self.long,
+# 			'lat': self.lat
+# 		}
+
+
+# class RestaurantInfo(Base):
+#     __tablename__ = 'restaurant_info'
+
+#     id = Column(Integer, primary_key=True)
+#     subsidiary_restaurant = relationship(SubRestaurant, back_populates="restaurant_info")
+#     subsidiary_restaurant_id = Column(Integer, ForeignKey('subsidiary_restaurant.id'))
+#     addresses = relationship(Address, back_populates="restaurant_info")
+#     addresses_id = Column(Integer, ForeignKey('addresses.id'))
+#     seating = Column(Integer, nullable=False)
+#     cuisine = Column(String(100), nullable=False)
+
+#     @property
+#     def serialize(self):
+# 	    return {
+# 			'id': self.id,
+# 			'subsidiary_restaurant': self.subsidiary_restaurant,
+# 			'addresses': self.addresses,
+# 			'seating': self.seating,
+# 			'cuisine': self.cuisine,
+# 		}
+
+
+# # class RestaurantQueue(Base):
+
+
+# # class RestaurantTransactions(Base):
+
+
+# # class RestaurantReviews(Base):
+
+
+# # class RestaurantDisputes(Base):
+
+
+# # class Menu(Base):
+
+
+# class MenuItem(Base):
+# 	__tablename__ = 'menu_item'
+
+# 	id = Column(Integer, primary_key=True)
+# 	course = Column(String(250))
+# 	description = Column(String(500))
+# 	price = Column(String(8))
+# 	ingredients = Column(String(250), nullable=False)
+# 	subsidiary_restaurant = relationship(SubRestaurant, back_populates="menu_item")
+# 	subsidiary_restaurant_id = Column(Integer, ForeignKey('subsidiary_restaurant.id'))
+
+# 	@property
+# 	def serialize(self):
+# 		return {
+# 			'id': self.id,
+# 			'course': self.course,
+# 			'description': self.description,
+# 			'price': self.price,
+# 			'restaurant': self.subsidiary_restaurant
+# 		}
 
 
 # class Address(Base):
