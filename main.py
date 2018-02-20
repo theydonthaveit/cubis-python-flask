@@ -1,4 +1,5 @@
 from flask import Flask, send_from_directory, render_template, request, redirect, url_for, flash, jsonify
+<<<<<<< Updated upstream
 from sqlalchemy import create_engine
 from sqlalchemy.orm import sessionmaker
 
@@ -11,6 +12,9 @@ Engine = create_engine('postgres://orajzfxrmovnsa:5b924f7d92c7faa14a0eafc35d9b05
 
 
 
+=======
+
+>>>>>>> Stashed changes
 from sqlalchemy import create_engine
 from sqlalchemy.orm import sessionmaker
 from database_setup import Base, Restaurant
@@ -29,12 +33,15 @@ app.secret_key = 'super secret key'
 def root():
     return 'Hi'
 
+<<<<<<< Updated upstream
 @app.route('/restaurants/', methods=['GET'])
 def list_restaurants():
     restaurants = session.query(Restaurant).all()
     return jsonify(Restaurants = [r.serialize for r in restaurants])
 
 
+=======
+>>>>>>> Stashed changes
 @app.route('/restaurants/JSON')
 def list_restaurants():
     restaurant = session.query(Restaurant).all()
